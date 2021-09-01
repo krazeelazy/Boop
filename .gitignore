@@ -12,6 +12,9 @@ coverage/
 build/
 
 # misc
+.env
+.scss
+.css
 .DS_Store
 .env.local
 .env.development.local

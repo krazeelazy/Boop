@@ -1,22 +1,15 @@
+import Login from "./components/login/Login";
+import Messenger from "./components/messenger/Messenger";
+import { useSelector } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
+    const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
+
     return (
-    <div className="App">
-        <header className="App-header">
-        <h1>Boop says Hello</h1>
-        <p>
-            Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            Learn React
-        </a>
-        </header>
-    </div>
+        <BrowserRouter>
+            <div className="App">{!isLoggedIn ? <Login /> : <Messenger />}</div>
+        </BrowserRouter>
     );
 }
 
